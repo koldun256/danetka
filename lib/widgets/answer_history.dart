@@ -1,5 +1,5 @@
 import 'package:danetka/models/game_state.dart';
-import 'package:danetka/services/llm_service.dart';
+import 'package:danetka/services/game_master_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,5 +1,5 @@
 import 'package:danetka/models/situation.dart';
-import 'package:danetka/services/llm_service.dart';
+import 'package:danetka/services/game_master_service.dart';
 import 'package:danetka/services/situation_service.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class GameState extends ChangeNotifier {
   List<QuestionAnswer> get questions => _questions;
 
   final SituationService _situationService = SituationService();
-  final LLMService _llmService = LLMService();
+  final GameMasterService _gameMasterService = GameMasterService();
 
   Future<void> loadNewSituation() async {
     _isLoading = true;
@@ -38,8 +38,7 @@ class GameState extends ChangeNotifier {
   Future<void> submitQuestion(String question) async {
     if (_hasWon || _situation == null) return;
 
-    final answer =
-        await _llmService.getAnswer(question, _situation!.explanation);
+    final answer = await _gameMasterService.getAnswer(_situation!, question);
 
     _questions.add(QuestionAnswer(question, answer));
     notifyListeners();
