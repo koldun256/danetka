@@ -1,6 +1,13 @@
+enum Answer { YES, NO, DOESNTMATTER, WIN }
+
 class LLMService {
-  Future<String> getAnswer(String question, String explanation) async {
+  Future<Answer> getAnswer(String question, String explanation) async {
     await Future.delayed(const Duration(seconds: 1));
-    return ["Да", "Нет", "Не имеет значения"][DateTime.now().millisecond % 3];
+    if (question == "Сосал?") return Answer.WIN;
+    return [
+      Answer.YES,
+      Answer.NO,
+      Answer.DOESNTMATTER
+    ][DateTime.now().millisecond % 3];
   }
 }

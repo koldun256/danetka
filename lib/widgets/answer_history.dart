@@ -1,4 +1,5 @@
 import 'package:danetka/models/game_state.dart';
+import 'package:danetka/services/llm_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,7 @@ class AnswerHistory extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
-                qa.answer.toUpperCase(),
+                _getAnswerText(qa.answer).toUpperCase(),
                 style: const TextStyle(color: Colors.white),
               ),
             ),
@@ -35,13 +36,26 @@ class AnswerHistory extends StatelessWidget {
     );
   }
 
-  Color _getAnswerColor(String answer) {
-    switch (answer.toLowerCase()) {
-      case 'да':
+  String _getAnswerText(Answer answer) {
+    switch (answer) {
+      case Answer.YES:
+        return "Да";
+      case Answer.NO:
+        return "Нет";
+      case Answer.DOESNTMATTER:
+        return "Не имеет значения";
+      case Answer.WIN:
+        return "Победа";
+    }
+  }
+
+  Color _getAnswerColor(Answer answer) {
+    switch (answer) {
+      case Answer.YES || Answer.WIN:
         return Colors.green;
-      case 'нет':
+      case Answer.NO:
         return Colors.red;
-      default:
+      case Answer.DOESNTMATTER:
         return Colors.blueGrey;
     }
   }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class QuestionAnswer {
   final String question;
-  final String answer;
+  final Answer answer;
 
   QuestionAnswer(this.question, this.answer);
 }
