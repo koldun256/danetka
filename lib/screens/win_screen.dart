@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:danetka/state/game_state.dart';
+import 'package:danetka/models/game_state.dart';
 import 'package:provider/provider.dart';
 
 class WinScreen extends StatelessWidget {

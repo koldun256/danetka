@@ -1,4 +1,4 @@
-import 'package:danetka/state/game_state.dart';
+import 'package:danetka/models/game_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,9 +37,9 @@ class AnswerHistory extends StatelessWidget {
 
   Color _getAnswerColor(String answer) {
     switch (answer.toLowerCase()) {
-      case 'Да':
+      case 'да':
         return Colors.green;
-      case 'Нет':
+      case 'нет':
         return Colors.red;
       default:
         return Colors.blueGrey;

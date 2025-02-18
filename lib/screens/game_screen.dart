@@ -1,4 +1,4 @@
-import 'package:danetka/state/game_state.dart';
+import 'package:danetka/models/game_state.dart';
 import 'package:danetka/widgets/answer_history.dart';
 import 'package:danetka/widgets/question_input.dart';
 import 'package:danetka/widgets/situation_display.dart';
