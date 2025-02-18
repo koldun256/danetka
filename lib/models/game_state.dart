@@ -44,13 +44,9 @@ class GameState extends ChangeNotifier {
     _questions.add(QuestionAnswer(question, answer));
     notifyListeners();
 
-    if (_checkWinCondition(question)) {
+    if (answer == Answer.WIN) {
       _hasWon = true;
       notifyListeners();
     }
-  }
-
-  bool _checkWinCondition(String question) {
-    return question.toLowerCase().contains(_situation!.explanation);
   }
 }

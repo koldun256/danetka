@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => GameState(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,10 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ДаНетКа',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: ChangeNotifierProvider(
-        create: (_) => GameState(),
-        child: const GameScreen(),
-      ),
+      home: const GameScreen(),
     );
   }
 }

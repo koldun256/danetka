@@ -1,4 +1,5 @@
 import 'package:danetka/models/game_state.dart';
+import 'package:danetka/screens/win_screen.dart';
 import 'package:danetka/widgets/answer_history.dart';
 import 'package:danetka/widgets/question_input.dart';
 import 'package:danetka/widgets/situation_display.dart';
@@ -24,6 +25,17 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (Provider.of<GameState>(context).hasWon) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const WinScreen(),
+          ),
+        );
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(title: const Text('ДаНетКа')),
       body: Consumer<GameState>(
