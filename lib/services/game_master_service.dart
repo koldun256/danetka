@@ -27,7 +27,7 @@ class GameMasterService {
     final String gptAns = await GptApi.prompt(
         systemPrompt: _generateSystemPrompt(situation),
         userPrompt: question,
-        model: GptModels.Pro);
+        model: GptModels.LLama);
 
     print(gptAns);
 

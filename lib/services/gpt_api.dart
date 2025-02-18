@@ -40,6 +40,7 @@ class IamTokenProvider {
 abstract class GptModels {
   static const String Lite = "yandexgpt-lite";
   static const String Pro = "yandexgpt";
+  static const String LLama = "llama";
 }
 
 abstract class GptApi {
