@@ -29,8 +29,6 @@ class GameMasterService {
         userPrompt: question,
         model: GptModels.LLama);
 
-    print(gptAns);
-
     if (gptAns.toLowerCase().contains("загадка разгадана")) {
       return Answer.WIN;
     }

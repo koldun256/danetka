@@ -43,7 +43,7 @@ class AnswerHistory extends StatelessWidget {
       case Answer.NO:
         return "Нет";
       case Answer.DOESNTMATTER:
-        return "Не имеет значения";
+        return "Не важно";
       case Answer.WIN:
         return "Победа";
     }
